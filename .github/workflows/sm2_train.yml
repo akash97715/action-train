@@ -3,13 +3,13 @@ name: SageMaker Train
 # Controls when the action will run. Triggers the workflow on push or pull request
 on: [push]
 
-jobs:     
+jobs:
   sm_train:
     runs-on: ubuntu-latest
     steps:
     - name: PR checkout
       uses: actions/checkout@v2
-      
+
     - name: setup python
       uses: actions/setup-python@v2
       with:
@@ -27,7 +27,7 @@ jobs:
           echo "Installing dependencies and caching them."
           pip install -r requirements.txt
 
-        
+
     - name: Fire SageMaker
       id: sm_train
       env:
@@ -45,4 +45,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       run: |
-        python sm_train.py
+        python sm2_train.py
